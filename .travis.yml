@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "0.8"
+before_script:
+  - npm install -g mocha
+  - npm install mocha chai jQuery jsdom xmlhttprequest
+script:
+  - mocha tests/spec/spinSpec.js -R spec -r tests/lib/setup-mocha.js
