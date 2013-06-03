@@ -1,0 +1,32 @@
+{
+  "name": "spin.js",
+  "version": "0.0.0",
+  "description": "An animated CSS3 loading spinner",
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "jsdom": "*",
+    "jQuery": "*",
+    "xmlhttprequest": "*"
+  },
+  "testling": {
+    "files": [
+      "tests/lib/setup-mocha.js",
+      "tests/spec/*.js"
+    ],
+    "scripts": [
+      "tests/lib/mocha.js",
+      "tests/lib/chai.js",
+      "tests/lib/jquery-1.10.1.min.js",
+      "spin.js"
+    ],
+    "browsers": {
+      "ie": [ 8, 9 ],
+      "firefox": [ 15 ],
+      "chrome": [ 22 ],
+      "safari": [ 5.1 ],
+      "opera": [ 12 ]
+    },
+    "harness": "mocha"
+  }
+}
