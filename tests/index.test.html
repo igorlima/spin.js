@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Spin JS</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lib/mocha.css" />
+    <style type="text/css">
+      div#spin-test {
+        height: 300px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+    <script src="lib/mocha.js"></script>
+    <script src="lib/chai.js"></script>
+    <script>
+      mocha.setup('bdd');
+      onload = function(){
+        mocha.checkLeaks();
+        mocha.ui('bdd');
+        mocha.reporter('html');
+        mocha.globals(['jQuery']);
+
+        if (window.mochaPhantomJS) mochaPhantomJS.run();
+        else mocha.run();
+
+      };
+    </script>
+    <script src="lib/jquery-1.10.1.min.js"></script>
+    <script src="../spin.js"></script>
+    <script src="spec/spinSpec.js"></script>
+  </body>
+</html>
