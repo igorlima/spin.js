@@ -14,6 +14,15 @@
 
   /* Browser global */
   else root.Spinner = factory()
+
+
+  if (typeof module === "object" && module && typeof module.exports === "object") {
+    // Expose Spinner as module.exports in loaders that implement the Node
+    // module pattern (including browserify). Do not create the global, since
+    // the user will be storing it themselves locally, and globals are frowned
+    // upon in the Node module world.
+    module.exports = root.Spinner;
+  }
 }
 (this, function() {
   "use strict";
