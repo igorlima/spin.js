@@ -45,24 +45,24 @@ describe('Usage Option Test', function() {
 
     it('should have 21px of translate, when create a spinner as {radius: 21}', function(done) {
       runSpinner( {radius: 21} );
-      result = $(target).find('.spinner div div').first().css('transform');
-      expect(result).to.equal("rotate(0deg) translate(21px, 0px)");
+      result = $(target).find('.spinner div div').first().attr('style');
+      expect(result).to.have.string("translate(21px");
 
       done();
     });
 
     it('should have 25px of border radius (a multiple of 2.5 times), when create a spinner as {corners: 10}', function(done) {
       runSpinner( {corners: 10} );
-      result = $(target).find('.spinner div div').first().css('border-top-left-radius');
-      expect(result).to.equal("25px");
+      result = $(target).find('.spinner div div').first().attr('style');
+      expect(result).to.have.string("radius: 25px");
 
       done();
     });
 
     it('should have 6deg of rotate, when create a spinner as {rotate: 6}', function(done) {
       runSpinner( {rotate: 6} );
-      result = $(target).find('.spinner div div').first().css('transform');
-      expect(result).to.equal("rotate(6deg) translate(10px, 0px)");
+      result = $(target).find('.spinner div div').first().attr('style');
+      expect(result).to.have.string("rotate(6deg)");
 
       done();
     });
@@ -91,8 +91,10 @@ describe('Usage Option Test', function() {
 
     it("should be red, when create a spinner as {color: '#f00'}", function(done) {
       runSpinner( {color: '#f00'} );
-      result = $(target).find('.spinner div div').first().css('background-color');
-      expect(result).to.equal("rgb(255, 0, 0)");
+      result = $(target).find('.spinner div div').first().attr('style');
+
+      var regex = /(background: #f00)|(rgb[(]255, 0, 0[)])/;
+      expect( regex.test(result) ).to.be.ok;
 
       done();
     });
@@ -114,11 +116,14 @@ describe('Usage Option Test', function() {
     });
 
     it('should have shadow, when create a spinner as {shadow: true}', function(done) {
+      var regex = null;
       runSpinner( {shadow: true} );
       result = $(target).find('.spinner > div').first().find('div').first().css('box-shadow');
-      expect(result, "The first div of spinner should not be shadow.").to.equal("rgb(0, 0, 0) 0px 0px 4px");
+
+      regex = /0(px)? 0(px)? 4px/;
+      expect( regex.test(result), "The first div of spinner should not be shadow.").to.be.ok;
       
-      var regex = /rgba[(]0, 0, 0, 0.09\d\d\d\d\d[)] 0px 0px 1px/;
+      regex = /0(px)? 0(px)? 1px/;
       result = $(target).find('.spinner > div').first().find('div').last().css('box-shadow');
       expect( regex.test(result), "The first div of spinner should be shadow." ).to.be.ok;
 
