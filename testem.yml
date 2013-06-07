@@ -1,0 +1,6 @@
+framework: mocha+chai
+
+src_files:
+  - spin.js
+  - tests/lib/jquery-1.10.1.min.js
+  - tests/spec/**/*.js
