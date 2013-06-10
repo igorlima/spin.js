@@ -6,11 +6,11 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
 before_script:
+  - curl https://gist.github.com/santiycr/5139565/raw/sauce_connect_setup.sh | bash
   - npm install -g phantomjs
   - npm install -g mocha
   - npm install -g testem
-  - npm install -g saucelauncher
-  - npm install mocha chai jQuery jsdom xmlhttprequest
 script:
+# - java -jar node_modules/saucelauncher/Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY --tunnel-identifier spin_js
   - mocha tests/spec/spinSpec.js -R spec -r tests/lib/setup-mocha.js
-  - testem ci
+  - testem ci --port 8080

@@ -4,3 +4,23 @@ src_files:
   - spin.js
   - tests/lib/jquery-1.10.1.min.js
   - tests/spec/**/*.js
+
+launchers:
+  SL_Firefox:
+    command: node tests/lib/saucelauncher-webdriver.js 'firefox' '21' 'Windows 7'
+    protocol: browser
+
+  SL_Chrome:
+    command: node tests/lib/saucelauncher-webdriver.js 'chrome' '' 'Windows 7'
+    protocol: browser
+
+  SL_IE_7:
+    command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '7' 'Windows XP'
+    protocol: browser
+
+  SL_IE_8:
+    command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '8' 'Windows XP'
+    protocol: browser
+
+launch_in_ci: [SL_Firefox, SL_Chrome, SL_IE_7, SL_IE_8]
+launch_in_dev: [phantomjs]

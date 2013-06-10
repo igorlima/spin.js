@@ -1,3 +1,16 @@
+function mocha_reporter() {
+  var reporter = {},
+      stats,
+      runner = mocha.reporter('tap').run(function() {
+        stats  = runner.stats;
+        reporter["failed"]  = stats.failures; // number of failed tests
+        reporter["passed"]  = stats.passes;   // number of passed tests
+        reporter["total"]   = stats.tests;    // total number of tests in test suite
+        reporter["runtime"] = stats.duration; // in ms
+      });
+  return reporter;
+}
+
 describe('Usage Option Test', function() {
 
   var spinner     = null,
