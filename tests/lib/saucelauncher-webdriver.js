@@ -56,10 +56,11 @@ function waitUntilResultsAreAvailable(js, timeout, start){
 browser.init(desired).then(function () {
   return browser.get("http://localhost:8080");
 }).then(function () {
-  return waitUntilResultsAreAvailable("jsreport = mocha_reporter()", 5000);
+  return waitUntilResultsAreAvailable("window.mocha_reporter_saucelabs()", 35000);
 }).then(function (jsreport) {
   // make an API call to Sauce - set custom-data with 'qunit' data
   var data = {
+    'passed': jsreport.totalCount>0 && jsreport.passed,
     'custom-data': {'mocha': jsreport}
   };
   return api(["/v1/", username, "/jobs/", browser.sessionID].join(""), "PUT", data);

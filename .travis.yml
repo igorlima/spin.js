@@ -11,6 +11,6 @@ before_script:
   - npm install -g mocha
   - npm install -g testem
 script:
-# - java -jar node_modules/saucelauncher/Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY --tunnel-identifier spin_js
+# - java -jar node_modules/saucelauncher/Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY --tunnel-identifier $TRAVIS_JOB_NUMBER
   - mocha tests/spec/spinSpec.js -R spec -r tests/lib/setup-mocha.js
   - testem ci --port 8080

@@ -2,6 +2,7 @@ framework: mocha+chai
 
 src_files:
   - spin.js
+  - tests/lib/mocha-reporter-saucelabs.js
   - tests/lib/jquery-1.10.1.min.js
   - tests/spec/**/*.js
 
@@ -22,5 +23,13 @@ launchers:
     command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '8' 'Windows XP'
     protocol: browser
 
-launch_in_ci: [SL_Firefox, SL_Chrome, SL_IE_7, SL_IE_8]
+  SL_IE_9:
+    command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '9' 'Windows 7'
+    protocol: browser
+
+  SL_IE_10:
+    command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '10' 'Windows 8'
+    protocol: browser
+
+launch_in_ci: [SL_Firefox, SL_Chrome, SL_IE_7, SL_IE_8, SL_IE_9, SL_IE_10]
 launch_in_dev: [phantomjs]
