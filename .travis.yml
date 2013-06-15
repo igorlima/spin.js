@@ -27,5 +27,5 @@ script:
 # https://github.com/axemclion/grunt-saucelabs
 env:
   global:
-    - secure: "GLZ7CT5dmna4FFAkwyPyd7CxehkII8xI9tgsw3ot/6WGKMjfTDBTUr7dEHVr\nkmALPduo29qC306F4K87DdlJ7hcwCQIbhsW7vgLAG1UpxuYEiS2AeeMXjbY5\nkXSfBc72fk3RNj4Kw0B8eBZ0PA2Isve4K9BX8C55Jlf6PwtQcX0="
-    - secure: "RDj6eMHCW62F6t6xBDUCv018GYoCaTTVJj3pMrcGuOtw+dO5A5Dun3rCCwCA\nAo8NIBAydjfeNhLn19ifK6XioA9hQUepfxGXwcXOKkQdGoFQhN9QN06VYyFg\nIYdo6v7Fs8QkfT+UL+kPWj4wqJ6iAi8bbCHyAMp/CaZY7GRgXwg="
+    - secure: "ipMea0lwVbpIbRYqDGsF/ICw26ofFIMalkh2d3oUaaaEHotFYlpcc21MtEV7\nSRXr0KGAuZ3SghOl4P8kng1CDF0yFqc8X7VJQtHIazaoHoD6UjKDdFbItF3Z\no/UFPpHlEnZcfkEaxhHmJ5bf8XOLwa/ztv4QbM6ss59K8XHjnLM="
+    - secure: "E6Zj/6gVbPt+w3JyJLV2Q1TwYP2zgRJyDWxqQq+3Wp/Zkt3Juv8zpZ1KDZ4f\n6ogylVTiWENiGTFTSQOca9MirwZIA9lgm/dP5dbm+NhSDt5k/r9QyWNF0CLv\nHmCIgcBSoETs9xrzQhO8DBLVdvbR0r/HRP3Htrgkk1nljLui4rE="
