@@ -15,13 +15,13 @@ launchers:
     command: node tests/lib/saucelauncher-webdriver.js 'chrome' '' 'Windows 7'
     protocol: browser
 
-  SL_IE_9:
-    command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '9' 'Windows 7'
-    protocol: browser
+  #SL_IE_9:
+  #  command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '9' 'Windows 7'
+  #  protocol: browser
 
   SL_IE_10:
     command: node tests/lib/saucelauncher-webdriver.js 'internet explorer' '10' 'Windows 8'
     protocol: browser
 
-launch_in_ci: [SL_Firefox, SL_Chrome, SL_IE_9, SL_IE_10]
+launch_in_ci: [SL_Firefox, SL_Chrome, SL_IE_10]
 launch_in_dev: [phantomjs]
