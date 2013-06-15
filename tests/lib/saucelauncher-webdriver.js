@@ -1,3 +1,8 @@
+/**
+ * JavaScript tests integration with Sauce
+ * https://saucelabs.com/docs/javascript-unit-tests-integration
+ */
+
 var wd = require('wd'),
     Q = require('q')
     request = require('request'),
@@ -56,7 +61,7 @@ function waitUntilResultsAreAvailable(js, timeout, start){
 browser.init(desired).then(function () {
   return browser.get("http://localhost:8080");
 }).then(function () {
-  return waitUntilResultsAreAvailable("window.mocha_reporter_saucelabs()", 35000);
+  return waitUntilResultsAreAvailable("window.mocha_reporter()", 5000);
 }).then(function (jsreport) {
   // make an API call to Sauce - set custom-data with 'qunit' data
   var data = {

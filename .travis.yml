@@ -11,6 +11,21 @@ before_script:
   - npm install -g mocha
   - npm install -g testem
 script:
-# - java -jar node_modules/saucelauncher/Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY --tunnel-identifier $TRAVIS_JOB_NUMBER
+  # Script to create a tunnel in a develop environment
+  # java -jar node_modules/saucelauncher/Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY --tunnel-identifier $TRAVIS_JOB_NUMBER
   - mocha tests/spec/spinSpec.js -R spec -r tests/lib/setup-mocha.js
   - testem ci --port 8080
+
+
+# Run tests using Travis CI and Sauce Labs
+# https://saucelabs.com/opensource/travis
+#
+# Secure environment variables
+# http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables
+#
+# Extra links
+# https://github.com/axemclion/grunt-saucelabs
+env:
+  global:
+    - secure: "GLZ7CT5dmna4FFAkwyPyd7CxehkII8xI9tgsw3ot/6WGKMjfTDBTUr7dEHVr\nkmALPduo29qC306F4K87DdlJ7hcwCQIbhsW7vgLAG1UpxuYEiS2AeeMXjbY5\nkXSfBc72fk3RNj4Kw0B8eBZ0PA2Isve4K9BX8C55Jlf6PwtQcX0="
+    - secure: "RDj6eMHCW62F6t6xBDUCv018GYoCaTTVJj3pMrcGuOtw+dO5A5Dun3rCCwCA\nAo8NIBAydjfeNhLn19ifK6XioA9hQUepfxGXwcXOKkQdGoFQhN9QN06VYyFg\nIYdo6v7Fs8QkfT+UL+kPWj4wqJ6iAi8bbCHyAMp/CaZY7GRgXwg="

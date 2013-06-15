@@ -1,22 +1,16 @@
-function mocha_reporter() {
-  var reporter = {},
-      stats,
-      runner = mocha.reporter('tap').run(function() {
-        stats  = runner.stats;
-        reporter["failed"]  = stats.failures; // number of failed tests
-        reporter["passed"]  = stats.passes;   // number of passed tests
-        reporter["total"]   = stats.tests;    // total number of tests in test suite
-        reporter["runtime"] = stats.duration; // in ms
-      });
-  return reporter;
-}
-
 describe('Usage Option Test', function() {
 
   var spinner     = null,
       result      = null,
       $           = jQuery,
       target      = $("<div>")[0],
+      /**
+       * Chai Assertion Library
+       * http://chaijs.com/guide/installation/
+       *
+       * Currently supports all modern browsers: IE 9+, Chrome 7+, FireFox 4+, Safari 5+. Please note that the should style is currently not compatible with IE9.
+       * If you want to know if your browser is compatible, run the online test suite: http://chaijs.com/api/test/
+       */
       expect      = chai.expect,
       runSpinner  = function(opts) {
                       spinner = new Spinner(opts).spin(target);

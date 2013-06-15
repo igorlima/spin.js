@@ -1,4 +1,4 @@
-mocha_reporter_saucelabs = (function(undefined) {
+mocha_reporter = (function(undefined) {
 
   function hasArray(obj, nameArray) {
     return obj && obj[nameArray] && obj[nameArray].length > 0;
